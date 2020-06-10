@@ -1,3 +1,18 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+
+    <!--RecyclerView-->
+    <dimen name="recycler_view_margin">8dp</dimen>
+
+    <!--SearchViewHeight-->
+    <dimen name="search_view_height">48dp</dimen>
+
+    <!--navigationView-->
+    <dimen name="navigation_view_height">64dp</dimen>
+
+    <!--CardView-->
+    <dimen name="card_view_margin">4dp</dimen>
+    <dimen name="card_view_corner_radius">8dp</dimen>
+    <dimen name="card_view_elevation">4dp</dimen>
+
 </resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="AppSearchView">
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:outlineAmbientShadowColor" tools:targetApi="p">
+            @android:color/transparent
+        </item>
+        <item name="android:queryBackground">@android:color/transparent</item>
+    </style>
+</resources>

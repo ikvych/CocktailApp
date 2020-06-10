@@ -1,20 +1,53 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="Theme.App.Main" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorPrimaryDark">@color/color_primary_variant</item>
+        <item name="colorSecondary">@color/color_secondary</item>
+        <item name="android:colorBackground">@color/color_background</item>
+        <item name="colorSurface">@color/color_surface</item>
+        <item name="colorOnSecondary">@color/color_on_secondary</item>
+        <item name="colorOnPrimary">@color/color_on_primary</item>
+        <item name="colorOnBackground">@color/color_on_background</item>
+        <item name="colorOnSurface">@color/color_on_surface</item>
+
+        <item name="textAppearanceBody2">@style/AppTextAppearanceBody2</item>
+        <item name="textAppearanceSubtitle2">@style/AppTextAppearanceSubtitle2</item>
     </style>
 
-    <style name="AppTheme.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
+    <!--override textAppearanceBody2-->
+    <style name="AppTextAppearanceBody2" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/color_on_surface_variant</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <!--override textAppearanceSubtitle2-->
+    <style name="AppTextAppearanceSubtitle2" parent="TextAppearance.MaterialComponents.Subtitle2">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/color_on_surface</item>
+    </style>
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <!--Text When RecyclerView is Empty-->
+    <style name="TextOnEmptyRecyclerView">
+        <item name="android:gravity">center</item>
+        <item name="android:visibility">gone</item>
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Body2</item>
+    </style>
+
+    <!--RecyclerView Style-->
+    <style name="RecyclerView">
+        <item name="android:layout_marginLeft">@dimen/recycler_view_margin</item>
+        <item name="android:layout_marginRight">@dimen/recycler_view_margin</item>
+    </style>
+
+    <!--SearchView Style-->
+    <style name="AppSearchView">
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:background">@drawable/search_view_shape</item>
+        <item name="android:inputType">text</item>
+    </style>
 
 </resources>

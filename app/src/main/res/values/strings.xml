@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">CocktailApp</string>
-    <string name="action_settings">Settings</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
-
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="empty_list">Enter text to start search</string>
+    <string name="empty_history">History is empty</string>
+    <string name="empty_search">No cocktails found</string>
+    <string name="details_name">Name:</string>
+    <string name="details_alcoholic">Alcoholic:</string>
+    <string name="details_glass">Glass:</string>
+    <string name="details_ingredients">Ingredients</string>
+    <string name="details_instruction">Instructions</string>
+    <string name="contentDescription">image with data</string>
 </resources>
