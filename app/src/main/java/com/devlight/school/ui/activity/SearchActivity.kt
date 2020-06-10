@@ -3,9 +3,9 @@ package com.devlight.school.ui.activity
 import android.os.Bundle
 import android.widget.SearchView
 import com.devlight.school.R
-import com.devlight.school.base.BaseActivity
+import com.devlight.school.ui.base.BaseActivity
 import com.devlight.school.constant.SEARCH_MODEL_TYPE
-import com.devlight.school.data.entity.Drink
+import com.devlight.school.model.entity.Drink
 import com.devlight.school.util.setEmptySearchVisible
 import com.devlight.school.util.setSearchEmptyListVisible
 import com.devlight.school.util.setSearchRecyclerViewVisible

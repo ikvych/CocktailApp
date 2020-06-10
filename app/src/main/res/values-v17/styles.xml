@@ -5,4 +5,20 @@
         <item name="android:layout_marginStart">@dimen/recycler_view_margin</item>
         <item name="android:layout_marginEnd">@dimen/recycler_view_margin</item>
     </style>
+
+    <style name="NavigationViewTitle">
+        <item name="android:layout_marginStart">@dimen/nav_view_title_margin_start</item>
+        <item name="android:layout_marginTop">@dimen/nav_view_title_margin_top</item>
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Headline6
+        </item>
+    </style>
+
+    <style name="SearchButton">
+        <item name="android:layout_width">@dimen/search_button_width</item>
+        <item name="android:layout_height">@dimen/search_button_height</item>
+        <item name="android:layout_gravity">bottom|end</item>
+        <item name="android:layout_marginEnd">@dimen/search_button_margin</item>
+        <item name="android:layout_marginBottom">@dimen/search_button_margin</item>
+    </style>
+
 </resources>

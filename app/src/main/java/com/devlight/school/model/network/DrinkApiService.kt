@@ -1,6 +1,6 @@
-package com.devlight.school.data.network
+package com.devlight.school.model.network
 
-import com.devlight.school.data.entity.DrinkApiResponse
+import com.devlight.school.model.entity.DrinkApiResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

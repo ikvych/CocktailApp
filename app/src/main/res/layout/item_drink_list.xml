@@ -6,7 +6,7 @@
     <data>
         <variable
             name="drink"
-            type="com.devlight.school.data.entity.Drink" />
+            type="com.devlight.school.model.entity.Drink" />
     </data>
 
     <androidx.cardview.widget.CardView

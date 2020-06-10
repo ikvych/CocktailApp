@@ -1,4 +1,4 @@
-package com.devlight.school.data.entity
+package com.devlight.school.model.entity
 
 import android.os.Parcel
 import android.os.Parcelable

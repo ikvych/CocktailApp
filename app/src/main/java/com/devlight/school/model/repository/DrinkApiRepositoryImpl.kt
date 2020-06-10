@@ -1,16 +1,17 @@
-package com.devlight.school.data.repository
+package com.devlight.school.model.repository
 
 import androidx.lifecycle.MutableLiveData
-import com.devlight.school.data.entity.Drink
-import com.devlight.school.data.entity.DrinkApiResponse
-import com.devlight.school.data.network.DrinkApiService
-import com.devlight.school.data.network.RetrofitInstance
-import com.devlight.school.data.repository.base.DrinkApiRepository
+import com.devlight.school.model.entity.Drink
+import com.devlight.school.model.entity.DrinkApiResponse
+import com.devlight.school.model.network.DrinkApiService
+import com.devlight.school.model.network.RetrofitInstance
+import com.devlight.school.model.repository.base.DrinkApiRepository
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class DrinkApiRepositoryImpl: DrinkApiRepository {
+class DrinkApiRepositoryImpl:
+    DrinkApiRepository {
 
     private val apiService: DrinkApiService = RetrofitInstance.service
     val drinksLiveData: MutableLiveData<List<Drink>> = MutableLiveData()

@@ -1,13 +1,13 @@
-package com.devlight.school.base
+package com.devlight.school.viewmodel.base
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.MutableLiveData
-import com.devlight.school.data.entity.Drink
+import androidx.lifecycle.LiveData
+import com.devlight.school.model.entity.Drink
 
 abstract class BaseViewModel(application: Application): AndroidViewModel(application) {
 
     abstract fun getCurrentData(): List<Drink>
 
-    abstract fun getLiveData(): MutableLiveData<List<Drink>>
+    abstract fun getLiveData(): LiveData<List<Drink>>
 }

@@ -1,4 +1,4 @@
-package com.devlight.school.data.network
+package com.devlight.school.model.network
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

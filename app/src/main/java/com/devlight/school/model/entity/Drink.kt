@@ -1,4 +1,4 @@
-package com.devlight.school.data.entity
+package com.devlight.school.model.entity
 
 import android.os.Parcel
 import android.os.Parcelable
@@ -21,6 +21,38 @@ import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 import java.util.*
 
+@BindingAdapter("ingredients")
+fun getIngredients(
+    tableLayout: TableLayout,
+    ingredients: Map<String?, String?>
+) {
+    var count = 1
+    for ((key, value) in ingredients) {
+        if (key == null) {
+            continue
+        }
+        val tr = LayoutInflater.from(tableLayout.context)
+            .inflate(
+                R.layout.item_ingredient_list,
+                tableLayout,
+                false
+            ) as TableRow
+        val ingredient = tr.findViewById<TextView>(R.id.ingredients)
+        val numberedIngredient = "$count. $key"
+        ingredient.text = numberedIngredient
+        val measure = tr.findViewById<TextView>(R.id.measure)
+        measure.text = value
+        tableLayout.addView(
+            tr,
+            TableLayout.LayoutParams(
+                TableLayout.LayoutParams.MATCH_PARENT,
+                TableLayout.LayoutParams.WRAP_CONTENT
+            )
+        )
+        count++
+    }
+}
+
 @Entity(tableName = "drink")
 class Drink : BaseObservable, Parcelable {
     @SerializedName("idDrink")
@@ -29,12 +61,6 @@ class Drink : BaseObservable, Parcelable {
     @ColumnInfo(name = "id_drink")
     private var idDrink: Long? = null
 
-    @ColumnInfo(name = "created")
-    var createdAt: Date? = null
-        get() {
-            field = Date()
-            return field
-        }
 
     @SerializedName("strDrink")
     @Expose
@@ -135,6 +161,7 @@ class Drink : BaseObservable, Parcelable {
     @Expose
     @ColumnInfo(name = "str_drink_thumb")
     private var strDrinkThumb: String? = null
+
 
     @Ignore
     private var ingredients: MutableMap<String?, String?> =
@@ -1014,57 +1041,30 @@ class Drink : BaseObservable, Parcelable {
         return 0
     }
 
-    companion object {
-        /*Using getIngredients() method fills the tableLayout in activity_drink_details with ingredients and measure*/
-/*        @BindingAdapter("ingredients")
-        fun getIngredients(
-            tableLayout: TableLayout,
-            ingredients: Map<String?, String?>
-        ) {
-            var count = 1
-            for ((key, value) in ingredients) {
-                if (key == null) {
-                    continue
-                }
-                val tr = LayoutInflater.from(tableLayout.context)
-                    .inflate(
-                        R.layout.item_ingredient_list,
-                        tableLayout,
-                        false
-                    ) as TableRow
-                val ingredient = tr.findViewById<TextView>(R.id.ingredients)
-                val numberedIngredient = "$count. $key"
-                ingredient.text = numberedIngredient
-                val measure = tr.findViewById<TextView>(R.id.measure)
-                measure.text = value
-                tableLayout.addView(
-                    tr,
-                    TableLayout.LayoutParams(
-                        TableLayout.LayoutParams.MATCH_PARENT,
-                        TableLayout.LayoutParams.WRAP_CONTENT
-                    )
-                )
-                count++
-            }
-        }*/
 
+    companion object CREATOR : Parcelable.Creator<Drink> {
+        override fun createFromParcel(`in`: Parcel): Drink {
+            return Drink(`in`)
+        }
+
+        override fun newArray(size: Int): Array<Drink?> {
+            return arrayOfNulls(size)
+        }
+    }
+
+    object CurrencyBindingAdapter {
         @BindingAdapter("strDrinkThumb")
         @JvmStatic
         fun loadImage(imageView: ImageView, imageUrl: String?) {
             Glide.with(imageView.context)
-                .load(imageUrl)
-                .placeholder(R.drawable.default_icon)
-                .into(imageView)
+                    .load(imageUrl)
+                    .placeholder(R.drawable.default_icon)
+                    .into(imageView)
         }
+    }
 
-        val CREATOR: Parcelable.Creator<Drink?> = object : Parcelable.Creator<Drink?> {
-            override fun createFromParcel(`in`: Parcel): Drink? {
-                return Drink(`in`)
-            }
+    /*Using getIngredients() method fills the tableLayout in activity_drink_details with ingredients and measure*/
+    object CurrencyBindingAdapter2 {
 
-            override fun newArray(size: Int): Array<Drink?> {
-                return arrayOfNulls(size)
-            }
-        }
     }
 }

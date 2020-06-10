@@ -1,7 +1,7 @@
-package com.devlight.school.data.repository.base
+package com.devlight.school.model.repository.base
 
 import androidx.lifecycle.MutableLiveData
-import com.devlight.school.data.entity.Drink
+import com.devlight.school.model.entity.Drink
 
 interface DrinkApiRepository {
 

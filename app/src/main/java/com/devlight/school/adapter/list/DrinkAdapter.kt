@@ -1,14 +1,19 @@
 package com.devlight.school.adapter.list
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.devlight.school.R
-import com.devlight.school.data.entity.Drink
+import com.devlight.school.constant.DRINK
+import com.devlight.school.constant.MAIN_MODEL_TYPE
+import com.devlight.school.constant.SEARCH_MODEL_TYPE
+import com.devlight.school.constant.VIEW_MODEL_TYPE
+import com.devlight.school.model.entity.Drink
 import com.devlight.school.databinding.ItemDrinkListBinding
+import com.devlight.school.ui.activity.DrinkDetailActivity
 
 class DrinkAdapter(
     private val context: Context,
@@ -47,8 +52,20 @@ class DrinkAdapter(
                 var position = adapterPosition
 
                 if (position != RecyclerView.NO_POSITION) {
-                    var drink: Drink = drinkList[position]
-
+                    val drink: Drink = drinkList[position]
+                    val intent = Intent(context, DrinkDetailActivity::class.java)
+                    when (activityName) {
+                        MAIN_MODEL_TYPE -> intent.putExtra(
+                            VIEW_MODEL_TYPE,
+                            MAIN_MODEL_TYPE
+                        )
+                        SEARCH_MODEL_TYPE -> intent.putExtra(
+                            VIEW_MODEL_TYPE,
+                            SEARCH_MODEL_TYPE
+                        )
+                    }
+                    intent.putExtra(DRINK, drink)
+                    context.startActivity(intent)
                 }
             }
         }

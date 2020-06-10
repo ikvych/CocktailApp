@@ -1,4 +1,4 @@
-package com.devlight.school.base
+package com.devlight.school.ui.base
 
 import android.content.res.Configuration
 import android.os.Bundle
@@ -9,7 +9,8 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.devlight.school.adapter.list.DrinkAdapter
-import com.devlight.school.data.entity.Drink
+import com.devlight.school.viewmodel.base.BaseViewModel
+import com.devlight.school.model.entity.Drink
 
 abstract class BaseActivity<T : BaseViewModel> : AppCompatActivity() {
 

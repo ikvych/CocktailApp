@@ -9,10 +9,29 @@
 
     <!--navigationView-->
     <dimen name="navigation_view_height">64dp</dimen>
+    <dimen name="nav_view_title_margin_start">70dp</dimen>
+    <dimen name="nav_view_title_margin_top">18dp</dimen>
 
     <!--CardView-->
     <dimen name="card_view_margin">4dp</dimen>
     <dimen name="card_view_corner_radius">8dp</dimen>
     <dimen name="card_view_elevation">4dp</dimen>
 
+    <!--SearchButton-->
+    <dimen name="search_button_width">56dp</dimen>
+    <dimen name="search_button_height">56dp</dimen>
+    <dimen name="search_button_margin">16dp</dimen>
+
+    <!--ResumeButton-->
+    <dimen name="resume_button_size">32dp</dimen>
+    <dimen name="resume_button_margin_top">16dp</dimen>
+    <dimen name="resume_button_margin_start">20dp</dimen>
+
+    <!--detail image-->
+    <dimen name="detail_image_height">180dp</dimen>
+    <dimen name="detail_image_margin_top">16dp</dimen>
+    <dimen name="detail_image_corner_radius">8dp</dimen>
+
+    <!--Table Row-->
+    <dimen name="table_row_margin_vertical">4dp</dimen>
 </resources>
