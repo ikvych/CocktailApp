@@ -58,11 +58,9 @@ class DrinkDetailActivity : BaseActivity<MainActivityViewModel>() {
     }
 
     override fun onDestroy() {
-        if (modelType.equals(SEARCH_MODEL_TYPE)) {
-            val intent = Intent(this, DrinkOfferService::class.java)
-            intent.putExtra(DRINK_ID, drink?.getIdDrink())
-            startService(intent)
-        }
+        val intent = Intent(this, DrinkOfferService::class.java)
+        intent.putExtra(DRINK_ID, drink?.getIdDrink())
+        startService(intent)
         super.onDestroy()
     }
 }

@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 
     <application
         android:allowBackup="false"
@@ -24,9 +25,13 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".service.DrinkOfferService">
-
-        </service>
+        <service android:name=".service.DrinkOfferService"/>
+        <service android:name=".service.ActionBootCompletedService"/>
+        <receiver android:name=".receiver.ActionBootCompletedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
