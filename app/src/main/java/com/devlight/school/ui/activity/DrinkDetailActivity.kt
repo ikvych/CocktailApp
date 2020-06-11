@@ -1,22 +1,22 @@
 package com.devlight.school.ui.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory
 import com.devlight.school.R
+import com.devlight.school.constant.*
 import com.devlight.school.ui.base.BaseActivity
-import com.devlight.school.constant.DRINK
-import com.devlight.school.constant.MAIN_MODEL_TYPE
-import com.devlight.school.constant.SEARCH_MODEL_TYPE
-import com.devlight.school.constant.VIEW_MODEL_TYPE
 import com.devlight.school.model.entity.Drink
 import com.devlight.school.databinding.ActivityDrinkDetailBinding
+import com.devlight.school.service.DrinkOfferService
 import com.devlight.school.viewmodel.MainActivityViewModel
 
 class DrinkDetailActivity : BaseActivity<MainActivityViewModel>() {
 
     private var drink: Drink? = null
+    private var modelType: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,8 +31,12 @@ class DrinkDetailActivity : BaseActivity<MainActivityViewModel>() {
                 if (viewModelType != null) {
                     when (viewModelType) {
                         MAIN_MODEL_TYPE -> {
+                            modelType = MAIN_MODEL_TYPE
                         }
-                        SEARCH_MODEL_TYPE -> saveDrinkIntoDb(drink!!)
+                        SEARCH_MODEL_TYPE -> {
+                            modelType = SEARCH_MODEL_TYPE
+                            saveDrinkIntoDb(drink!!)
+                        }
                     }
                 }
             }
@@ -51,5 +55,14 @@ class DrinkDetailActivity : BaseActivity<MainActivityViewModel>() {
 
     fun resumePreviousActivity(view: View?) {
         finish()
+    }
+
+    override fun onDestroy() {
+        if (modelType.equals(SEARCH_MODEL_TYPE)) {
+            val intent = Intent(this, DrinkOfferService::class.java)
+            intent.putExtra(DRINK_ID, drink?.getIdDrink())
+            startService(intent)
+        }
+        super.onDestroy()
     }
 }

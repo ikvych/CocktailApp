@@ -1,5 +1,7 @@
 package com.devlight.school.ui.base
 
+import android.content.Intent
+import android.content.IntentFilter
 import android.content.res.Configuration
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -9,16 +11,24 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.devlight.school.adapter.list.DrinkAdapter
+import com.devlight.school.constant.ACTION_SHOW_DRINK_OFFER
 import com.devlight.school.viewmodel.base.BaseViewModel
 import com.devlight.school.model.entity.Drink
+import com.devlight.school.receiver.FlyModeReceiver
 
 abstract class BaseActivity<T : BaseViewModel> : AppCompatActivity() {
 
     lateinit var drinkAdapter: DrinkAdapter
     lateinit var viewModel : T
+    private val flyModeReceiver: FlyModeReceiver = FlyModeReceiver()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val filter = IntentFilter().apply {
+            addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED)
+        }
+        registerReceiver(flyModeReceiver, filter)
     }
 
     fun initViewModel(viewModelClass: Class<T>) {
@@ -72,5 +82,10 @@ abstract class BaseActivity<T : BaseViewModel> : AppCompatActivity() {
      */
     open fun determineVisibleLayerOnUpdateData(drinks: List<Drink?>?) {
         //TO DO
+    }
+
+    override fun onDestroy() {
+        unregisterReceiver(flyModeReceiver)
+        super.onDestroy()
     }
 }
