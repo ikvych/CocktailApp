@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.devlight.school">
+    xmlns:ndroid="http://schemas.android.com/apk/distribution"
+    package="com.ikvych.cocktail">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WAKE_LOCK"/>
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:allowBackup="false"
@@ -13,23 +14,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.App.Main">
-        <activity android:name=".ui.activity.DrinkDetailActivity"/>
+        <activity android:name=".ui.activity.MainActivity" />
+        <activity android:name=".ui.activity.DrinkDetailActivity" />
         <activity android:name=".ui.activity.SearchActivity" />
-        <activity
-            android:name=".ui.activity.MainActivity"
-            android:label="@string/app_name">
+        <activity android:name=".ui.activity.aus.LoginActivity"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.activity.SplashActivity"
+            >
+        </activity>
 
-        <service android:name=".service.DrinkOfferService"/>
-        <service android:name=".service.ActionBootCompletedService"/>
+        <service android:name=".service.ApplicationService" />
+
         <receiver android:name=".receiver.ActionBootCompletedReceiver">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
     </application>
