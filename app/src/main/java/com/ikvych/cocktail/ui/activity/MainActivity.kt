@@ -33,7 +33,7 @@ class MainActivity : RecyclerViewActivity<MainActivityViewModel>(), BatteryListe
     private lateinit var batteryIcon: ImageView
     private lateinit var powerConnected: ImageView
 
-    //comment
+    //New Comment
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
